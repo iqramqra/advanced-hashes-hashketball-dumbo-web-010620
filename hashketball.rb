@@ -252,7 +252,6 @@ def player_with_longest_name
 max_player = 0
   game_hash.each do |team, team_hash|
     team_hash[:players].each do |player, player_hash|
-     # p player_hash = home and away values, nested hashes 
      p player_hash
     end
   end
