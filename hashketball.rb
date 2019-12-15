@@ -193,13 +193,20 @@ end
 #   end
 # end
 
-def player_stats(player_name)
-  game_hash.each do |location, team|
-    if team[:player_name] == player_name
-      return team[:player_name] 
+def player_stats(data)
+  game_hash.each do |team, team_info|
+    team_info.each do |key, value|
+      if key == :players
+        value.each do |player|
+          if data == player[:player_name]
+            player.delete(:player_name)  
+            return player
+          end
+        end
+      end
     end
   end
-end
+end 
 
 
 
